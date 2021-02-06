@@ -4,6 +4,7 @@ import com.vukasin.websocketexample.model.Message;
 import com.vukasin.websocketexample.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,7 @@ public class MessageController {
     private SimpMessagingTemplate template;
 
     @MessageMapping("/send/message")
-    public void sendMsg(Message message){
+    public void sendMsg(@Payload Message message){
         this.template.convertAndSend("/message",message);
     }
 }
