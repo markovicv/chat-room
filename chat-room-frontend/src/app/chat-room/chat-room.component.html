@@ -1,0 +1,20 @@
+<body>
+  <div class="chatbox">
+    <div class="chatlogs" >
+      <div class="chat" *ngFor="let msg of this.messageService.messageList">
+          <p *ngIf= "getUsername()==msg.senderUsername" class="chat-message-self">{{msg.content}}</p>
+          <p *ngIf= "getUsername()!=msg.senderUsername" class="chat-message">{{msg.content}}</p>
+
+      </div>
+       
+    </div>
+    <div class="chat-form">
+      <textarea [(ngModel)]="input"></textarea>
+      <button (click)="sendMessage()"> SEND</button>
+
+    </div>
+  </div>
+
+
+
+</body>

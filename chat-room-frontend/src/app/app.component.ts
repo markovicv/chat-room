@@ -9,18 +9,10 @@ import { MessageApiService } from './services/message-api.service';
 export class AppComponent {
   title = 'websockets';
 
-  input;
-  probica:Array<String> =[];  
 
-  constructor(public messageService:MessageApiService){
+  constructor(private messageService:MessageApiService){
     this.messageService.initWebSockets();
-    
   }
 
-  sendMessage(){
-    if(this.input){
-      this.messageService.sendMessage(this.input);
-      this.input = '';
-    }
-  }
+  
 }

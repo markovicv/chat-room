@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Message } from '../model/messae';
 declare var SockJS:any;
 declare var Stomp:any;
 
@@ -7,7 +8,7 @@ declare var Stomp:any;
 })
 export class MessageApiService {
 
-  public messageList:Array<String> = [];
+  public messageList:Message[] = [];
   public stompClient;
 
   constructor() { }
@@ -19,7 +20,9 @@ export class MessageApiService {
 
     this.stompClient.connect({},()=>{
       that.stompClient.subscribe('/message',message=>{
-        this.messageList.push(message.body);
+        const chatMsg:Message = JSON.parse(message.body);
+        this.messageList.push(chatMsg);
+        
       });
     });
   }
