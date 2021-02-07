@@ -23,15 +23,14 @@ export class ChatRoomComponent implements OnInit {
   sendMessage(){
     if(this.input){
       let message:Message ={
-        senderUsername:this.loginService.getCurrentLoggedUser(),
+        senderUsername:localStorage.getItem("username"),
         content:this.input
       };
-      // message.senderUsername = this.loginService.getCurrentLoggedUser();
       this.messageService.sendMessage(JSON.stringify(message));
       this.input = '';
     }
   }
   getUsername(){
-    return this.loginService.getCurrentLoggedUser();
+    return localStorage.getItem("username");
   }
 }
