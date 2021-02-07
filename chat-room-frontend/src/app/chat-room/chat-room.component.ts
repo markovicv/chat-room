@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Message } from '../model/messae';
 import { LoginService } from '../services/login.service';
 import { MessageApiService } from '../services/message-api.service';
@@ -12,7 +13,7 @@ export class ChatRoomComponent implements OnInit {
 
   input;
 
-  constructor(public messageService:MessageApiService,private loginService:LoginService){
+  constructor(public messageService:MessageApiService,private loginService:LoginService,private router:Router){
     
   }
 
@@ -32,5 +33,9 @@ export class ChatRoomComponent implements OnInit {
   }
   getUsername(){
     return localStorage.getItem("username");
+  }
+  logout(){
+    localStorage.clear()
+    this.router.navigateByUrl("/login");
   }
 }
