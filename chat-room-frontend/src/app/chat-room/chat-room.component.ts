@@ -32,6 +32,7 @@ export class ChatRoomComponent implements OnInit {
     }
   }
   getUsername(){
+    console.log(localStorage.getItem("username"));
     return localStorage.getItem("username");
   }
   logout(){

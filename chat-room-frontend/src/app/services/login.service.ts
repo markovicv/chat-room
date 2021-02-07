@@ -15,7 +15,7 @@ export class LoginService {
 
 
   login(loginRequest:LoginRequest):Observable<any>{
-    return this.http.post<LoginResponse>("http://localhost:8081/user/auth",loginRequest);
+    return this.http.post<LoginResponse>("http://localhost:8081/user/auth",loginRequest,{headers:{skip:"true"}});
   }
 
   setCurrentLogedUser(user){

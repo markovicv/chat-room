@@ -21,7 +21,7 @@ export class MessageApiService {
     this.stompClient.connect({},()=>{
       that.stompClient.subscribe('/message',message=>{
         const chatMsg:Message = JSON.parse(message.body);
-        this.messageList.push(chatMsg);
+         this.messageList.push(chatMsg);
         
       });
     });
