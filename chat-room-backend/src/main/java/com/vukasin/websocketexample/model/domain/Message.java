@@ -1,4 +1,4 @@
-package com.vukasin.websocketexample.model;
+package com.vukasin.websocketexample.model.domain;
 
 public class Message {
     private String senderUsername;
