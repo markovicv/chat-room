@@ -5,3 +5,4 @@
 
 - Authentication and authorization is done usin JWT tokens alongside Spring Security
 - Websockets for real time messaging (using STOMP protocol and SockJS)
+- MongoDB used as a database
