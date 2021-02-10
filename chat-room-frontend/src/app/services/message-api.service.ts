@@ -14,7 +14,7 @@ export class MessageApiService {
   constructor() { }
 
   initWebSockets(){
-    const webSockets = new SockJS('http://localhost:8081/skavula');
+    const webSockets = new SockJS('http://localhost:8081/ws');
     this.stompClient = Stomp.over(webSockets);
     let that = this;
 
