@@ -17,7 +17,6 @@ public class MessageController {
 
     @MessageMapping("/send/message")
     public void sendMsg(@Payload Message message){
-        System.out.println(message.getContent());
         this.template.convertAndSend("/message",message);
     }
 }
